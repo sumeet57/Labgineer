@@ -31,9 +31,10 @@ const projectSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
-    links: {
+    link: {
         type: String,
         required: true,
+        select: false, // Exclude the link field from query results by default
     },
     available: {
         type: Boolean,
