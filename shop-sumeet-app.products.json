@@ -1,0 +1,491 @@
+[{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84c5"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Fall Detection & Emergency Alert Device",
+  "description": "This Fall Detection & Emergency Alert Device uses Arduino with an MPU6050 accelerometer and gyroscope sensor to monitor sudden motion and body tilt in real time. The system intelligently differentiates between normal movements like walking or sitting and actual fall events by detecting sudden shock followed by a stable position for a few seconds. Once a fall is confirmed, the device activates a buzzer alarm and LED indicators to alert nearby individuals. A manual reset button is included to stop alerts after assistance is provided. The device is portable, rechargeable, and suitable for elderly monitoring, patient care, industrial safety, and health awareness applications. Fully assembled hardware, circuit diagrams, documentation, and blackbook content are included for final-year academic submission.",
+  "price": 1999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/fall-detection-emergency-alert-device.jpg",
+  "stock": 5,
+  "category": "iot",
+  "__v": 0,
+  "features": [
+    "Accurate real-fall detection algorithm",
+    "Shock + stability confirmation logic",
+    "Buzzer emergency alert system",
+    "LED status indicators",
+    "Manual reset button",
+    "Portable rechargeable design"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14935",
+  "includes": [
+    "Fully assembled working model",
+    "Circuit diagram & connections",
+    "Arduino source code",
+    "User guide & documentation",
+    "Blackbook PDF (50+ pages)"
+  ],
+  "projectContext": "IoT safety device detecting real human falls and triggering emergency alerts.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84c6"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Environment & AQI Monitoring System",
+  "description": "The Environment & AQI Monitoring System is a portable IoT device built using ESP32 to measure real-time air quality and environmental conditions. It integrates MQ135 and MQ7 gas sensors to detect pollutants such as CO2, Carbon Monoxide, and harmful gases, along with a DHT22 sensor for temperature and humidity monitoring. The ESP32 hosts a wireless web server allowing users to connect via WiFi and access live readings through a browser dashboard. The system calculates AQI values and displays environmental analytics in real time. Designed for smart homes, industrial monitoring, pollution tracking, and research applications, this project demonstrates IoT networking, sensor integration, and embedded web hosting. Fully deployment-ready with documentation and blackbook content.",
+  "price": 1999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/environment-aqi-monitoring-system.jpg",
+  "stock": 4,
+  "category": "iot",
+  "__v": 0,
+  "features": [
+    "Real-time AQI calculation",
+    "Multi-gas detection sensors",
+    "Temperature & humidity monitoring",
+    "ESP32 web server dashboard",
+    "WiFi direct device access",
+    "Portable monitoring unit"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14936",
+  "includes": [
+    "Fully assembled device",
+    "ESP32 firmware code",
+    "Diagrams"
+  ],
+  "projectContext": "Portable IoT system monitoring air quality and environment with live dashboard.",
+  "link": "https://drive.google.com/drive/folders/1fBPcjIELKKkReMkOv85g9FwhM_ZRKCxA"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84c7"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Autonomous Path Follower Robot",
+  "description": "The Autonomous Path Follower Robot is an Arduino-based robotic system designed to follow predefined tracks using infrared sensors. The robot detects contrast differences between black path lines and lighter surfaces and dynamically adjusts its movement to stay aligned on track. Powered by dual 300 RPM motors, L298N motor driver, and an 8.4V rechargeable battery pack, it delivers stable torque and smooth navigation. The folding black tape track platform makes it portable and easy to demonstrate. This project showcases embedded programming, sensor-based navigation, and robotic automation concepts widely used in warehouse logistics and industrial transport systems. Delivered as a fully working model with documentation and academic submission materials.",
+  "price": 2199,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/path-follower-robot.jpg",
+  "stock": 0,
+  "category": "iot",
+  "__v": 0,
+  "features": [
+    "IR sensor path detection",
+    "Accurate line tracking",
+    "Dual motor drive system",
+    "Rechargeable battery pack",
+    "Folding demo track platform"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14937",
+  "includes": [
+    "Fully assembled robot",
+    "Track platform",
+    "Arduino source code",
+    "Motor driver setup",
+    "Blackbook PDF"
+  ],
+  "projectContext": "Autonomous robot that follows predefined paths using IR sensors.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84c8"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "2-in-1 Obstacle Avoiding & Object Following Robot",
+  "description": "This dual-mode smart robot combines obstacle avoidance and object/human following capabilities in a single ESP32-powered platform. Controlled via a WiFi web dashboard, users can manually operate the robot or enable autonomous modes. Ultrasonic sensors detect nearby obstacles and reroute movement automatically, while object-following mode allows the robot to track and move toward a target. When following mode is active, manual controls are disabled for operational safety. Powered by dual 300 RPM motors, servo-mounted sensors, and rechargeable batteries, the robot demonstrates IoT robotics, wireless control systems, and intelligent navigation algorithms. Ideal for robotics, automation, and embedded system final-year submissions.",
+  "price": 2499,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/obstacle-avoiding-object-following-robot.jpg",
+  "stock": 0,
+  "category": "iot",
+  "__v": 0,
+  "features": [
+    "Dual autonomous modes",
+    "Obstacle avoidance system",
+    "Object/human following",
+    "ESP32 WiFi dashboard control",
+    "Servo sensor tracking",
+    "Manual + auto switching"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14938",
+  "includes": [
+    "Fully assembled robot",
+    "Web control dashboard",
+    "ESP32 firmware",
+    "Circuit diagrams",
+    "Blackbook PDF"
+  ],
+  "projectContext": "WiFi robot with obstacle avoidance and intelligent following modes.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84c9"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Laser Based Audio Communication System",
+  "description": "This project demonstrates a wireless audio communication system that uses a laser beam as the transmission medium instead of conventional radio frequency signals. The system consists of a transmitting unit and a receiving unit designed to send real-time voice signals through light.\r\n\r\nIn the transmitter section, a microphone captures voice signals and converts them into electrical audio signals. These signals are amplified and used to modulate the intensity of a laser beam. Although the human eye cannot detect the slight variations in brightness, the laser carries the encoded audio information through free space.\r\n\r\nAt the receiver end, a light-sensitive sensor detects the fluctuating laser beam and converts the optical variations back into electrical signals. These signals are then amplified to drive a speaker, reproducing the original voice clearly. Proper signal amplification and noise filtering techniques are applied to ensure stable performance and improved audio clarity.\r\n\r\nThis project is a practical demonstration of optical communication principles, specifically amplitude modulation using light as a carrier. It reflects the basic working concept behind advanced fiber optic communication systems used in modern telecommunication networks.\r\n\r\nThe system operates without radio frequencies, making it free from RF interference. It is simple, cost-effective, and suitable for academic demonstrations, exhibitions, and educational purposes. The project helps in understanding signal amplification, modulation, optical transmission, and noise reduction techniques in a hands-on way.",
+  "price": 2000,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1771448700074-Laser_Based_Audio_Communication_System_J3uHZ90d_.jpeg",
+  "stock": 2,
+  "category": "iot",
+  "__v": 0,
+  "features": [
+    "Reduce noise due to filtering capacitors",
+    "Realtime voice communication",
+    "Wireless audio transmission using laser light",
+    "Upto 20m range"
+  ],
+  "imageFileId": "6996297c5c7cd75eb84e4754",
+  "includes": [
+    "All diagrams",
+    "Documentation & Guide",
+    "Working Model",
+    "Extra 2 batteries"
+  ],
+  "projectContext": "Wireless audio transmission using modulated laser beam.",
+  "link": "https://drive.google.com/drive/folders/1ZXORAIEx9JCJT7xursKC-TvLY625zqWD?usp=sharing"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84ca"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "MERN Blog Website with Analytics Dashboard",
+  "description": "A full-stack blog publishing platform built using MongoDB, Express.js, React, and Node.js. The system supports article publishing, likes, comments, and user engagement features. An integrated analytics dashboard provides insights into post performance and audience activity. Includes authentication, CRUD operations, responsive UI, and deployment-ready configuration. Ideal for web development final-year submissions.",
+  "price": 3999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/mern-blog-website.jpg",
+  "stock": 9999,
+  "category": "web",
+  "__v": 0,
+  "features": [
+    "Full MERN stack",
+    "Like & comment system",
+    "Admin analytics dashboard",
+    "Authentication system",
+    "Deployment ready"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14940",
+  "includes": [
+    "Full source code",
+    "Deployment guide",
+    "Database schema",
+    "Project documentation",
+    "Blackbook PDF"
+  ],
+  "projectContext": "Full-stack blog platform with engagement and analytics features.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84cb"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "AnonymousTalk – Ephemeral Chat Platform",
+  "description": "AnonymousTalk is a privacy-first real-time chat platform built on MERN stack with WebSockets. It uses volatile in-memory architecture where chats, rooms, and identities are auto-deleted after inactivity. No database storage ensures zero data footprint. Features include private room creation, random identities, and automatic garbage collection. Ideal for cybersecurity and real-time systems submissions.",
+  "price": 3999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/anonymous-talk-chat.jpg",
+  "stock": 9999,
+  "category": "web",
+  "__v": 0,
+  "features": [
+    "Database-less architecture",
+    "Real-time WebSocket chat",
+    "Auto room deletion",
+    "Random anonymous identities",
+    "Private encrypted rooms"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14941",
+  "includes": [
+    "Full source code",
+    "Socket architecture",
+    "Deployment setup",
+    "Documentation",
+    "Blackbook PDF"
+  ],
+  "projectContext": "Ephemeral anonymous chat system with volatile memory architecture.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84cc"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "StegoOrange – Image Steganography Suite",
+  "description": "StegoOrange is a web-based steganography platform that hides encrypted messages inside images using LSB encoding and AES-256 encryption. It includes PSNR quality analysis, RGB channel selection, and client-side processing ensuring zero data exposure. Built with HTML, TailwindCSS, and JavaScript, it demonstrates cybersecurity and cryptography principles.",
+  "price": 1999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/stego-orange.jpg",
+  "stock": 9999,
+  "category": "web",
+  "__v": 0,
+  "features": [
+    "LSB steganography encoding",
+    "AES-256 encryption",
+    "PSNR quality analysis",
+    "RGB channel embedding",
+    "Client-side processing"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14942",
+  "includes": [
+    "Full source code",
+    "Encryption modules",
+    "Documentation",
+    "User guide",
+    "Blackbook PDF"
+  ],
+  "projectContext": "Secure web suite hiding encrypted messages inside images.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "68cbcb96694f683bc97c84cd"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "MERN URL Shortener with Analytics",
+  "description": "A production-ready URL shortening platform built using MERN stack. It converts long URLs into short links with analytics tracking including clicks, location, and device metrics. Features include custom aliases, authentication, and dashboard management. Designed as a SaaS-style deployment-ready application.",
+  "price": 4500,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/mern-url-shortener.jpg",
+  "stock": 9999,
+  "category": "web",
+  "__v": 0,
+  "features": [
+    "Custom short links",
+    "Click analytics tracking",
+    "User dashboard",
+    "Authentication system",
+    "Deployment ready"
+  ],
+  "imageFileId": "68ee692b5c7cd75eb8e14943",
+  "includes": [
+    "Full source code",
+    "Analytics dashboard",
+    "Deployment guide",
+    "Documentation",
+    "Blackbook PDF"
+  ],
+  "projectContext": "Scalable URL shortening platform with analytics dashboard.",
+  "link": "https://shop.sumeet.app/"
+},
+{
+  "_id": {
+    "$oid": "699f50b15b543b6e409d02cd"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Smart Bidirectional V2G–G2V Power Management System",
+  "projectContext": "ESP8266-based intelligent bidirectional power control with safety and web monitoring.",
+  "description": "This project is a Smart Bidirectional Vehicle-to-Grid (V2G) and Grid-to-Vehicle (G2V) Power Management System built using the ESP8266 microcontroller. It enables controlled switching between battery charging mode (G2V) and inverter output mode (V2G) with safety interlocks and intelligent timing control.\r\n\r\nThe system features a modern, responsive web-based control panel hosted directly from the ESP8266. Users can monitor system status in real time, switch operational modes, and observe visual LED indicators for server readiness (D0), G2V mode (D1), and V2G mode (D2).\r\n\r\nSafety mechanisms include enforced 5-second cooldown intervals between mode switching, relay interlock logic to prevent cross conduction, dead-time control in inverter loop timing, and backend validation to avoid rapid toggling.\r\n\r\nDesigned as a functional prototype and demonstration model, this project highlights embedded system design, power electronics control logic, IoT-based UI integration, and real-world safety implementation in bidirectional energy systems.",
+  "price": 5000,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1772048559721-g2vv2g_aztfOHqW2.jpeg",
+  "imageFileId": "699f50b05c7cd75eb882f43b",
+  "stock": 0,
+  "category": "iot",
+  "features": [
+    "Bidirectional Power Flow (V2G & G2V)",
+    "Smart Web Interface",
+    "Dead-time controlled inverter switching",
+    "Relay-based mode isolation",
+    "DC Alternating Inverter Circuit"
+  ],
+  "includes": [
+    "Readymade Working Model",
+    "Blackbook (Diagrams)",
+    "Adapter (15v 2A)"
+  ],
+  "link": "https://drive.google.com/drive/folders/1BvQKi3Rzj-22Mo9OgH6v3JLHrML4r27W",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a51d11f3e6b0429176c970"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Smart Waste Segregator",
+  "projectContext": "A machine that automatically separates dry, wet, and metal waste.",
+  "description": "The Smart Waste Segregator is a simple and effective project designed to solve the problem of mixed waste. Usually, separating waste by hand is a messy and slow process. This machine does it automatically using smart sensors and an Arduino. When you put waste into the machine, it uses a Metal sensor to check for iron, a Moisture sensor for wet waste, and an IR sensor to detect when an object is dropped.\r\n\r\nThe machine has a rotating tray powered by a motor. Based on the type of waste, the motor turns the tray to the correct bin (Dry, Wet, or Metal). We have used a special \"Braking\" code so that the motor stops exactly at the right spot without shaking. Once aligned, a servo motor opens the lead (gate) to drop the waste into the bin. It is a perfect solution for schools, colleges, and small offices to manage waste easily and keep the environment clean.",
+  "price": 2099,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1772428560199-pic_sj_1fZAF3.jpeg",
+  "imageFileId": "69a51d115c7cd75eb8c2a97e",
+  "stock": 0,
+  "category": "iot",
+  "features": [
+    "Automatic Sorting",
+    "Power Efficient",
+    "Fast & Reliable",
+    "Simple Design"
+  ],
+  "includes": [
+    "Working Model",
+    "Blackbook PDF (70pgs)",
+    "Sourcecode & Diagrams"
+  ],
+  "link": "https://drive.google.com/drive/folders/104q7xhQG5a4FY2yDr4b-me3sL58_F1R4?usp=sharing",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69aedaa6f3e6b0429176cb62"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "LensPRO: AR-Powered Sign Detection & Multi-Language Translation",
+  "projectContext": "Breaking Language Barriers Through Augmented Reality Technology.",
+  "description": "LensPRO is an innovative Augmented Reality (AR) application that revolutionizes how users interact with foreign language signage. Using real-time camera input combined with optical character recognition (OCR), the application instantly detects text from physical signs and provides accurate translations across 7 languages including English, Hindi, Marathi, Gujarati, Punjabi, Marwadi, and Tamil. The platform leverages Tesseract.js for advanced OCR processing, Three.js for immersive 3D AR visualization, and a sophisticated 5-tier matching algorithm to ensure maximum accuracy. Users can listen to translations via text-to-speech, copy results to clipboard, and seamlessly switch between languages. Perfect for travelers, multilingual communities, and accessibility support, LensPRO transforms the experience of navigating unfamiliar linguistic environments into an engaging, interactive experience.",
+  "price": 2999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1773066916984-Screenshot_2026-03-09_195757_4j_vabwFM.png",
+  "imageFileId": "69aedaa55c7cd75eb81079a0",
+  "category": "web",
+  "features": [
+    "Multi-Language Support with Native Scripts",
+    "Integrated Text-to-Speech & Clipboard Functions",
+    "Real-Time OCR Text Detection",
+    "Smart 5-Tier Dictionary Matching Algorithm",
+    "Immersive 3D AR Visualization"
+  ],
+  "includes": [
+    "Production Deployment Ready",
+    "Blackbook(Diagrams only)",
+    "Detailed Documentation & Sourcecode"
+  ],
+  "link": "https://drive.google.com/drive/folders/1HBzwe3i7E1B35ZfU62ljeo4Unpj0l8AX?usp=sharing",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b2be4ff3e6b0429176cd7a"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Wildlife Education AR Platform",
+  "projectContext": "Interactive augmented reality platform for wildlife education and exploration.",
+  "description": "Wildlife Education AR App is an innovative, immersive learning platform that brings animals to life through cutting-edge augmented reality technology. Users can explore nine diverse animals including lions, wolves, frogs, snakes, spiders, and more in stunning 3D detail. The app features realistic model rendering, synchronized animations, and interactive sound effects. Perfect for educational purposes, wildlife enthusiasts, and curious learners of all ages, this app transforms passive learning into an engaging, interactive experience where users can rotate, scale, and animate animals in real-time while discovering fascinating facts about each species.",
+  "price": 2999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1773327293959-Screenshot_2026-03-12_202243_LASJCPnAR.png",
+  "imageFileId": "69b2d3be5c7cd75eb83ddb77",
+  "category": "web",
+  "features": [
+    "Interactive 3D animal models",
+    "Dynamic Animation System",
+    "Augmented Reality Integrated",
+    "Interactive AR Experience"
+  ],
+  "includes": [
+    "Blackbook(Diagrams only)",
+    "Documentation & Guide",
+    "Complete Deployment",
+    "Setup & Sourcecode"
+  ],
+  "link": "https://drive.google.com/drive/folders/1Qprj1g9XS_6ihz3fBLWly4k2iBGjNIFk?usp=drive_link",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b2d89ef3e6b0429176ce2c"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "Fire Escape Monitoring System with Intelligent Blockage Detection",
+  "projectContext": "Intelligent distributed IoT system detecting gas and blockages at escape routes.",
+  "description": "Fire Escape Monitoring System is a distributed IoT platform with three ESP32 microcontrollers monitoring fire escape routes in real-time. It combines MQ-07 gas detection with HC-SR04 ultrasonic obstacle sensing for dual-layer protection. The main server detects hazardous gases (activation 400ppm, clearing 200ppm) while two door units independently monitor physical blockages at 20cm threshold. Dynamic alerts escalate based on danger level: green LED and 500ms buzzer when escape is possible, red LED and 300ms buzzer when all routes blocked. Communication happens via dedicated WiFi AP requiring no external router. System maintains safety during component failures through graceful degradation and local processing at each unit.",
+  "price": 4000,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1773328541314-smart_out6c1x2t.jpeg",
+  "imageFileId": "69b2d89e5c7cd75eb86424c7",
+  "stock": 0,
+  "category": "iot",
+  "features": [
+    "Wireless Communication",
+    "Web Dashboard Monitoring",
+    "Centralized Network"
+  ],
+  "includes": [
+    "Working Model & Sourcecode",
+    "Blackbook (diagrams only)",
+    "Documentation & Guide",
+    "Essentials For Project"
+  ],
+  "link": "https://shop.sumeet.app/",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69b692cef3e6b0429176d01d"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "AI-Powered Plagiarism Detection System",
+  "projectContext": "AI-ML powered web platform for identifying academic document similarity.",
+  "description": "This system utilizes advanced AI-ML technologies to help students and educators maintain academic integrity by identifying copied content with high precision. At its core, the engine leverages a TF-IDF algorithm and a robust 7-layer detection process that analyzes everything from exact word matches to deep semantic meanings. The platform allows users to submit text between 50 and 1000 words, performing real-time preprocessing like tokenization and stemming to ensure accurate results in under two seconds. Beyond simple detection, it provides a full user ecosystem where reports can be stored privately, shared publicly, or even downloaded as professional five-page PDF documents. By combining 35+ reference documents with a growing database of student submissions, the system maintains a 94-96% accuracy rate while strictly protecting student privacy through data encryption.",
+  "price": 5999,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1773573771231-Screenshot_2026-03-15_165231_aWkWFpn80.png",
+  "imageFileId": "69b6968c5c7cd75eb88ee46a",
+  "category": "web",
+  "features": [
+    "AIML Detection Level",
+    "NLP Preprocessing Engine",
+    "Detailed PDF Reports",
+    "Secure User Dashboard",
+    "Training Data Management"
+  ],
+  "includes": [
+    "Sourcecode & Complete Deployment",
+    "Documentation & Guide"
+  ],
+  "link": "https://drive.google.com/drive/folders/1XjZeHHn1QjjEchR5aGSoTmOhnpwV3DwV?usp=drive_link",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69d4a11815916b1ca1a0b848"
+  },
+  "user": {
+    "$oid": "68c999173019caec1c0a288d"
+  },
+  "name": "AI-Enabled Neurological Disorder Detector",
+  "projectContext": "Intelligent real-time edge monitoring system",
+  "description": "This project presents an intelligent, non-invasive system designed to detect seizures and respiratory abnormalities in real time using embedded technology. Utilizing an ESP32-WROOM-32, the device processes motion and sound data locally to identify abnormal patterns without requiring wearable sensors or cloud dependency. It features a web-based dashboard for live visualization, CSV logging for event tracking, and an automated email alert system to notify caregivers immediately during emergencies.",
+  "price": 4500,
+  "imageUrl": "https://ik.imagekit.io/sumeetlive/project-uploads/1775542771127-image_of_project_neuro_Yzcw0Ae3r.jpeg",
+  "imageFileId": "69d4a1f45c7cd75eb8526629",
+  "stock": 4,
+  "category": "iot",
+  "features": [
+    "Secure Data Logging",
+    "Automated Emergency Alerts",
+    "Real-Time Visualization",
+    "Edge AI Processing",
+    "Interactive Web Dashboard"
+  ],
+  "includes": [
+    "Working Project",
+    "Blackbook(62pgs)",
+    "Essential for Project"
+  ],
+  "link": "https://drive.google.com/drive/folders/1KpgYT0bFQ7X5TzittNl8qA0SKEJJQrHP?usp=drive_link",
+  "__v": 0
+}]

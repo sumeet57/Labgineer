@@ -26,6 +26,12 @@ import {
 
 // oauth2 imports
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import TermsAndConditions from './pages/policies/TermsAndConditions'
+import PrivacyStatement from './pages/policies/PrivacyStatement'
+import RefundPolicy from './pages/policies/RefundPolicy'
+import Contact from './pages/policies/Contact'
+import Shipping from './pages/policies/Shipping'
+import About from './pages/policies/About'
 
 function ToastWrapper() {
   const { isDark } = useTheme()
@@ -62,7 +68,7 @@ export default function App() {
                 {/* Public */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductsPage />} />
-                <Route path="/products/:slug" element={<ProductDetailPage />} />
+                <Route path="/products/:id" element={<ProductDetailPage />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
                 <Route path="/research" element={<ResearchPage />} />
@@ -83,6 +89,13 @@ export default function App() {
                   <Route path="profile" element={<DashboardProfile />} />
                 </Route>
               </Route>
+
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/privacy" element={<PrivacyStatement />} />
+              <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/shipping" element={<Shipping />} />
             </Routes>
             <ToastWrapper />
           </BrowserRouter>

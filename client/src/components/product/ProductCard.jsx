@@ -12,9 +12,10 @@ const categoryIcons = {
 }
 
 export default function ProductCard({ product, index = 0 }) {
-  const { addToCart, isInCart } = useCart()
+  const { addToCart, isInCart, removeFromCart } = useCart()
   const inCart = isInCart(product._id)
-  const Icon = categoryIcons[product.category] || categoryIcons.default
+  const Icon = categoryIcons[product.category] || categoryIcons.default;
+
 
   return (
     <motion.article
@@ -26,10 +27,10 @@ export default function ProductCard({ product, index = 0 }) {
       style={{ '--shadow-color': 'rgba(249,115,22,0.08)' }}
     >
       {/* Thumbnail */}
-      <Link to={`/products/${product.slug}`} className="block aspect-video overflow-hidden relative bg-surface-alt">
-        {product.thumbnail ? (
+      <Link to={`/products/${product._id}`} className="block aspect-video overflow-hidden relative bg-surface-alt">
+        {product.imageUrl ? (
           <img
-            src={product.thumbnail}
+            src={product.imageUrl}
             alt={product.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
@@ -64,7 +65,7 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
         )}
 
-        <Link to={`/products/${product.slug}`}>
+        <Link to={`/products/${product._id}`} className="block mb-2">
           <h3 className="font-bold font-display text-primary text-base leading-snug mb-2 group-hover:text-accent transition-colors line-clamp-2">
             {product.title}
           </h3>
@@ -77,7 +78,13 @@ export default function ProductCard({ product, index = 0 }) {
         <div className="flex items-center gap-2">
           <motion.button
             whileTap={{ scale: 0.96 }}
-            onClick={() => !inCart && addToCart(product)}
+            onClick={() => {
+              if (inCart) {
+                removeFromCart(product._id)
+              } else {
+                addToCart(product)
+              }
+            }}
             disabled={inCart}
             className="flex-1 py-2 text-xs font-mono font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 text-white disabled:opacity-70"
             style={{ backgroundColor: 'var(--color-highlight)' }}
@@ -85,12 +92,12 @@ export default function ProductCard({ product, index = 0 }) {
             <HiOutlineShoppingBag size={13} />
             {inCart ? 'In Cart' : 'Add to Cart'}
           </motion.button>
-          <Link
-            to={`/products/${product.slug}`}
+          {/* <Link
+            to={`/products/${product._id}/do`}
             className="p-2 rounded-lg border border-surface hover:border-highlight text-muted hover:text-accent transition-colors"
           >
             <HiOutlineDownload size={15} />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </motion.article>

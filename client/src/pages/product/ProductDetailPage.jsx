@@ -8,19 +8,23 @@ import { productAPI, paymentAPI } from '../../api/services'
 import { useAuth } from '../../context/AuthContext'
 import { useCart } from '../../context/CartContext'
 import { Button, Badge, PageLoader, Spinner } from '../../components/common/UI'
+import { useEffect } from 'react'
 
 export default function ProductDetailPage() {
-  const { slug } = useParams()
+  const { id } = useParams()
   const { isAuthenticated } = useAuth()
   const { addToCart, isInCart } = useCart()
 
-  const { data, loading, error } = useFetch(`/products/${slug}`)
+  const { data, loading, error } = useFetch(`/products/${id}`)
+  useEffect(() => {
+    console.log('Fetched product data:', data)
+  }, [])
   const { mutate: purchase, loading: purchasing } = useMutation(
     (productId) => paymentAPI.createOrder({ productId })
   )
 
   if (loading) return <PageLoader />
-  if (error || !data?.product) {
+  if (error || !data) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-20 text-center">
         <p className="text-muted">Product not found.</p>
@@ -29,7 +33,8 @@ export default function ProductDetailPage() {
     )
   }
 
-  const { product } = data
+  const product = data;
+  
   const inCart = isInCart(product._id)
 
   const handleBuy = async () => {
@@ -61,8 +66,8 @@ export default function ProductDetailPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="rounded-2xl overflow-hidden border border-surface aspect-video bg-surface-alt mb-8"
           >
-            {product.thumbnail ? (
-              <img src={product.thumbnail} alt={product.title} className="w-full h-full object-cover" />
+            {product.imageUrl ? (
+              <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
                 <BsCode size={60} style={{ color: 'var(--color-highlight)', opacity: 0.2 }} />
@@ -70,13 +75,13 @@ export default function ProductDetailPage() {
             )}
           </motion.div>
 
-          {/* Title */}
+          {/* name */}
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl sm:text-4xl font-black font-display text-primary mb-4"
           >
-            {product.title}
+            {product.name}
           </motion.h1>
 
           {/* Tags */}

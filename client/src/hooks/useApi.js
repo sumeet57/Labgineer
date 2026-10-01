@@ -20,7 +20,8 @@ export function useFetch(endpoint, options = {}) {
         params: { ...params, ...overrideParams },
         signal: controllerRef.current.signal,
       })
-      setData(res.data)
+      
+      setData(res.data.payload || res.data)
     } catch (err) {
       if (err.name !== 'CanceledError') setError(err.response?.data?.message || 'Something went wrong')
     } finally {

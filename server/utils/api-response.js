@@ -8,6 +8,18 @@ class ApiResponse {
     this.message = message;
     this.payload = payload;
   }
+
+  /**
+   * Send JSON response directly to client
+   */
+  send(res) {
+    return res.status(this.statusCode).json({
+      success: this.success,
+      statusCode: this.statusCode,
+      message: this.message,
+      payload: this.payload,
+    });
+  }
 }
 
 /**
@@ -18,11 +30,11 @@ class ApiError extends Error {
     statusCode,
     message = "Something went wrong",
     errors = [],
-    stack = "",
+    stack = ""
   ) {
     super(message);
     this.statusCode = statusCode;
-    this.payload = null; // Usually null for errors
+    this.payload = null;
     this.message = message;
     this.success = false;
     this.errors = errors;
@@ -35,32 +47,36 @@ class ApiError extends Error {
   }
 }
 
+/**
+ * @description Central error handling middleware
+ */
 const globalErrorHandler = (err, req, res, next) => {
   console.error("GLOBAL ERROR:", err);
 
-  /* ---------------- API ERROR ---------------- */
-  if (err instanceof ApiError) {
-    return res.status(err.statusCode).json({
-      success: err.success,
-      statusCode: err.statusCode,
-      message: err.message,
-      payload: err.payload,
-      errors: err.errors,
-    });
-  }
+  let error = err;
 
-  /* ---------------- MONGOOSE CAST ---------------- */
+  /* ---------------- MONGOOSE CAST ERROR ---------------- */
   if (err.name === "CastError") {
-    return res.status(400).json(new ApiError(400, "Invalid ID format"));
+    error = new ApiError(400, "Invalid ID format");
   }
 
-  /* ---------------- DUPLICATE KEY ---------------- */
+  /* ---------------- DUPLICATE KEY ERROR ---------------- */
   if (err.code === 11000) {
-    return res.status(400).json(new ApiError(400, "Duplicate field value"));
+    error = new ApiError(400, "Duplicate field value");
   }
 
-  /* ---------------- FALLBACK ---------------- */
-  return res.status(500).json(new ApiError(500, "Internal Server Error"));
+  /* ---------------- FALLBACK FOR UNHANDLED ERRORS ---------------- */
+  if (!(error instanceof ApiError)) {
+    error = new ApiError(500, "Internal Server Error");
+  }
+
+  return res.status(error.statusCode).json({
+    success: error.success,
+    statusCode: error.statusCode,
+    message: error.message,
+    payload: error.payload,
+    errors: error.errors,
+  });
 };
 
 export { ApiResponse, ApiError, globalErrorHandler };

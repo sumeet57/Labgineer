@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiSearch, FiFilter, FiX } from 'react-icons/fi'
-import { usePagination, useSearch } from '../../hooks/useApi'
+import { useFetch, usePagination, useSearch } from '../../hooks/useApi'
 import ProductCard from "../../components/product/ProductCard"
 import { SectionHeader, Spinner, Button, EmptyState } from '../../components/common/UI'
 
-const categories = ['All', 'IoT', 'Web', 'Embedded', 'AI/ML']
+const categories = ['all', 'iot', 'web', 'embedded', 'ai/ml']
 const sortOptions = [
   { value: 'latest', label: 'Latest' },
   { value: 'popular', label: 'Popular' },
@@ -14,31 +14,31 @@ const sortOptions = [
 ]
 
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState('all')
   const [sort, setSort] = useState('latest')
   const [showSearch, setShowSearch] = useState(false)
 
-  const { query, setQuery, results: searchResults, loading: searchLoading } = useSearch('/products/search')
-  const {
-    data: products,
-    loading,
-    hasMore,
-    loadMore,
-    applyFilters,
-  } = usePagination('/products', 12)
+  const { data: featuredData, laoding : productsLoading } = useFetch('/products/featured');
+  const [displayedProducts, setDisplayedProducts] = useState(featuredData?.payload || []);
+  
+
+  useEffect(() => {
+    handleCategoryChange(activeCategory || 'all');
+  }, [featuredData]);
+
 
   const handleCategoryChange = (cat) => {
-    setActiveCategory(cat)
-    applyFilters({ category: cat === 'All' ? '' : cat, sort })
+    setActiveCategory(cat);
+    const filteredProducts = cat === 'all' ? featuredData : featuredData.filter(p => p.category === cat);
+    setDisplayedProducts(filteredProducts);
   }
+
 
   const handleSortChange = (s) => {
+    console.log('Sort changed to:', displayedProducts)
     setSort(s)
-    applyFilters({ category: activeCategory === 'All' ? '' : activeCategory, sort: s })
   }
 
-  const isSearching = query.trim().length > 0
-  const displayedProducts = isSearching ? searchResults : products
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -115,9 +115,9 @@ export default function ProductsPage() {
       )}
 
       {/* Grid */}
-      {loading && products.length === 0 ? (
+      {productsLoading && products.length === 0 ? (
         <div className="py-24"><Spinner size={36} /></div>
-      ) : displayedProducts.length > 0 ? (
+      ) : displayedProducts?.length > 0 ? (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {displayedProducts.map((p, i) => (
@@ -125,20 +125,13 @@ export default function ProductsPage() {
             ))}
           </div>
 
-          {/* Load more */}
-          {!isSearching && hasMore && (
-            <div className="flex justify-center mt-12">
-              <Button onClick={loadMore} loading={loading} variant="outline">
-                Load more projects
-              </Button>
-            </div>
-          )}
+          
         </>
       ) : (
         <EmptyState
           icon="🔧"
           title="No projects found"
-          description={isSearching ? `No results for "${query}"` : 'No projects in this category yet.'}
+          description={productsLoading? `No results for "${query}"` : 'No projects in this category yet.'}
         />
       )}
     </div>

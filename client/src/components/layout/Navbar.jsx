@@ -50,9 +50,8 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-xl font-black tracking-tight font-display" style={{ color: 'var(--color-text)' }}>
-              lab
-              <span style={{ color: 'var(--color-highlight)' }}>gineer</span>
+            <span className="font-black tracking-tight font-display w-35 h-35" >
+              <img src="./LOGO.png" className="w-full h-full object-cover" alt="" srcset="" />
             </span>
           </Link>
 
@@ -111,10 +110,10 @@ export default function Navbar() {
                   onClick={() => setUserMenuOpen(o => !o)}
                   className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-surface-alt transition-colors"
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white overflow-hidden cursor-pointer"
                     style={{ backgroundColor: 'var(--color-highlight)' }}
                   >
-                    {user?.name?.[0]?.toUpperCase() || 'U'}
+                    <img className='rounded-full' src={user?.avatar} alt="U" />
                   </div>
                 </button>
                 <AnimatePresence>

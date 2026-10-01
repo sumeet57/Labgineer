@@ -3,8 +3,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import env from "./config/env.js";
 import limiter from "./middlewares/rateLimiter.js";
-import authRouter from "./routes/auth.route.js";
 import { configureSession } from "./config/session.js";
+import authRouter from "./routes/auth.route.js";
+import projectRouter from "./routes/project.route.js";
+import rndRouter from "./routes/rnd.route.js";
 
 const app = express();
 
@@ -26,5 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/products", projectRouter);
+app.use("/api/rnd", rndRouter);
 
 export default app;

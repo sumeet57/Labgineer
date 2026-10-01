@@ -29,6 +29,7 @@ export function AuthProvider({ children }) {
   const checkAuth = useCallback(async () => {
     try {
       const res = await authAPI.me()
+      console.log('Auth check response:', res.data) // Log the response data
       dispatch({ type: 'SET_USER', payload: res.data.user })
     } catch {
       dispatch({ type: 'SET_USER', payload: null })

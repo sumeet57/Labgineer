@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FiGithub, FiTwitter, FiLinkedin, FiMail } from 'react-icons/fi'
-import { SiRazorpay } from 'react-icons/si'
+import { RiSecurePaymentLine } from 'react-icons/ri'
 
 const footerLinks = {
   Platform: [
@@ -11,26 +11,32 @@ const footerLinks = {
   ],
   Legal: [
     { to: '/privacy', label: 'Privacy Policy' },
-    { to: '/terms', label: 'Terms of Use' },
-    { to: '/refund', label: 'Refund Policy' },
+    { to: '/terms', label: 'Terms & Conditions' },
+    { to: '/refund', label: 'Refund & Cancellation' },
+    { to: '/contact', label: 'Contact' },
+    { to: '/shipping', label: 'Shipping' },
+    { to: '/about', label: 'About' },
   ],
 }
 
 const socials = [
-  { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FiMail, href: 'mailto:hi@labgineer.com', label: 'Email' },
+  { icon: FiGithub, href: 'https://github.com/sumeet57', label: 'GitHub' },
+  { icon: FiLinkedin, href: 'https://linkedin.com/in/sumeet-umbalkar', label: 'LinkedIn' },
+  { icon: FiMail, href: 'mailto:hello@labgineer.com', label: 'Email' },
 ]
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="mt-24 border-t border-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="inline-block mb-4">
+            <Link to="/" onClick={scrollToTop} className="inline-block mb-4">
               <span className="text-2xl font-black tracking-tight font-display" style={{ color: 'var(--color-text)' }}>
                 lab<span style={{ color: 'var(--color-highlight)' }}>gineer</span>
               </span>
@@ -61,7 +67,11 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map(({ to, label }) => (
                   <li key={to}>
-                    <Link to={to} className="text-sm text-muted hover:text-accent link-underline transition-colors">
+                    <Link
+                      to={to}
+                      onClick={scrollToTop}
+                      className="text-sm text-muted hover:text-accent link-underline transition-colors"
+                    >
                       {label}
                     </Link>
                   </li>
@@ -70,24 +80,7 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-muted mb-4">Stay updated</h4>
-            <p className="text-sm text-muted mb-3">Get notified on new projects & research drops.</p>
-            <div className="flex flex-col gap-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="w-full px-3 py-2 text-sm rounded-lg border border-surface bg-surface-alt text-primary placeholder-muted focus:outline-none focus:border-highlight transition-colors font-mono"
-              />
-              <button
-                className="w-full py-2 text-sm font-mono font-bold rounded-lg text-white transition-opacity hover:opacity-90"
-                style={{ backgroundColor: 'var(--color-highlight)' }}
-              >
-                Subscribe
-              </button>
-            </div>
-          </div>
+          
         </div>
 
         {/* Bottom bar */}
@@ -97,8 +90,8 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2 text-xs text-muted">
             <span>Payments secured by</span>
-            <SiRazorpay size={14} style={{ color: 'var(--color-highlight)' }} />
-            <span className="font-mono">Razorpay</span>
+            <img src="./payment-gateway-icon.png" alt="Cashfree Logo" className="h-4" />
+            <span className="font-mono">Cashfree</span>
           </div>
         </div>
       </div>
