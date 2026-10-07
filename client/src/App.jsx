@@ -32,6 +32,7 @@ import RefundPolicy from './pages/policies/RefundPolicy'
 import Contact from './pages/policies/Contact'
 import Shipping from './pages/policies/Shipping'
 import About from './pages/policies/About'
+import OSSPage from './pages/OSSPage'
 
 function ToastWrapper() {
   const { isDark } = useTheme()
@@ -72,6 +73,7 @@ export default function App() {
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
                 <Route path="/research" element={<ResearchPage />} />
+                <Route path="/oss" element={<OSSPage />} />
                 <Route path="/cart" element={<CartPage />} />
 
                 {/* Auth */}

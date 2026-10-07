@@ -11,7 +11,6 @@ import { Button, Input, Spinner, EmptyState } from '../../components/common/UI'
 const sidebarLinks = [
   { to: '/dashboard', end: true, icon: FiGrid, label: 'Overview' },
   { to: '/dashboard/orders', icon: FiShoppingBag, label: 'My Orders' },
-  { to: '/dashboard/downloads', icon: FiDownload, label: 'Downloads' },
   { to: '/dashboard/profile', icon: FiUser, label: 'Profile' },
 ]
 
@@ -170,6 +169,7 @@ export function DashboardProfile() {
     try {
       const res = await userAPI.updateProfile(form)
       updateUser(res.data.user)
+      console.log('Profile updated:', res.data.user)
       toast.success('Profile updated!')
     } catch {
       toast.error('Failed to update profile')
@@ -201,20 +201,7 @@ export function DashboardProfile() {
         </form>
       </div>
 
-      <div>
-        <h2 className="text-lg font-black font-display text-primary mb-4 flex items-center gap-2">
-          <FiLock size={16} /> Change password
-        </h2>
-        <form onSubmit={handlePasswordChange} className="bg-card border border-surface rounded-2xl p-6 space-y-4">
-          <Input label="Current password" type="password" value={passForm.current}
-            onChange={e => setPassForm(f => ({ ...f, current: e.target.value }))} />
-          <Input label="New password" type="password" value={passForm.newPass}
-            onChange={e => setPassForm(f => ({ ...f, newPass: e.target.value }))} />
-          <Input label="Confirm new password" type="password" value={passForm.confirm}
-            onChange={e => setPassForm(f => ({ ...f, confirm: e.target.value }))} />
-          <Button type="submit" variant="outline">Change password</Button>
-        </form>
-      </div>
+      
     </motion.div>
   )
 }

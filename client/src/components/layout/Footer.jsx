@@ -5,9 +5,9 @@ import { RiSecurePaymentLine } from 'react-icons/ri'
 const footerLinks = {
   Platform: [
     { to: '/products', label: 'Projects' },
-    { to: '/blog', label: 'Blog' },
+    { to: '/oss', label: 'OSS' },
     { to: '/research', label: 'Research' },
-    { to: '/about', label: 'About' },
+    { to: '/sd', label: 'System Design' },
   ],
   Legal: [
     { to: '/privacy', label: 'Privacy Policy' },

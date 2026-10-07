@@ -44,7 +44,7 @@ export const getCurrentUser = async (req, res) => {
   try {
 
     // what is use of googleId in user model? is it necessary to exclude it from the response? : The `googleId` field in the user model is typically used to store the unique identifier provided by Google when a user authenticates via Google OAuth. This ID can be useful for linking the user's account in your application with their Google account, allowing for features like single sign-on or retrieving additional information from Google.
-    const user = await User.findById(req.session.userId).select('-googleId -__v -createdAt -updatedAt'); // Exclude sensitive fields
+    const user = await User.findById(req.session.userId).select('-googleId -__v '); // Exclude sensitive fields
     
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
