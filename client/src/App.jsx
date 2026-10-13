@@ -1,41 +1,38 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { ThemeProvider, useTheme } from './context/ThemeContext'
-import { AuthProvider } from './context/AuthContext'
-import { CartProvider } from './context/CartContext'
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 
-import Layout from './components/layout/Layout'
-import HomePage from './pages/HomePage'
-import ProductsPage from './pages/product/ProductsPage'
-import ProductDetailPage from './pages/product/ProductDetailPage'
-import BlogPage from './pages/blog/BlogPage'
-import BlogPostPage from './pages/blog/BlogPostPage'
-import ResearchPage from './pages/ResearchPage'
-import CartPage from './pages/CartPage'
+import Layout from "./components/layout/Layout";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/product/ProductsPage";
+import ProductDetailPage from "./pages/product/ProductDetailPage";
+import ResearchPage from "./pages/ResearchPage";
+import CartPage from "./pages/CartPage";
 
-import AuthPage from './pages/auth/AuthPages'
+import AuthPage from "./pages/auth/AuthPages";
 import {
   DashboardLayout,
   DashboardOverview,
   DashboardOrders,
   DashboardProfile,
-} from './pages/dashboard/DashboardPages'
-
+} from "./pages/dashboard/DashboardPages";
 
 // oauth2 imports
-import { GoogleOAuthProvider } from '@react-oauth/google'
-import TermsAndConditions from './pages/policies/TermsAndConditions'
-import PrivacyStatement from './pages/policies/PrivacyStatement'
-import RefundPolicy from './pages/policies/RefundPolicy'
-import Contact from './pages/policies/Contact'
-import Shipping from './pages/policies/Shipping'
-import About from './pages/policies/About'
-import OSSPage from './pages/OSSPage'
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import TermsAndConditions from "./pages/policies/TermsAndConditions";
+import PrivacyStatement from "./pages/policies/PrivacyStatement";
+import RefundPolicy from "./pages/policies/RefundPolicy";
+import Contact from "./pages/policies/Contact";
+import Shipping from "./pages/policies/Shipping";
+import About from "./pages/policies/About";
+import OSSPage from "./pages/OSSPage";
 
 function ToastWrapper() {
-  const { isDark } = useTheme()
+  const { isDark } = useTheme();
   return (
     <ToastContainer
       position="bottom-right"
@@ -43,20 +40,20 @@ function ToastWrapper() {
       hideProgressBar={false}
       closeOnClick
       pauseOnHover
-      theme={isDark ? 'dark' : 'light'}
+      theme={isDark ? "dark" : "light"}
       toastStyle={{
         fontFamily: "'Space Mono', monospace",
-        fontSize: '13px',
-        borderRadius: '12px',
-        border: '1px solid var(--color-border)',
-        background: 'var(--color-bg-card)',
-        color: 'var(--color-text)',
+        fontSize: "13px",
+        borderRadius: "12px",
+        border: "1px solid var(--color-border)",
+        background: "var(--color-bg-card)",
+        color: "var(--color-text)",
       }}
     />
-  )
+  );
 }
 
-const clientid = import.meta.env.VITE_GOOGLE_CLIENT_ID
+const clientid = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 export default function App() {
   return (
@@ -77,11 +74,14 @@ export default function App() {
                 <Route path="/cart" element={<CartPage />} />
 
                 {/* Auth */}
-                <Route path="/auth" element={
-                  <GoogleOAuthProvider clientId={clientid}>
-                    <AuthPage />
-                  </GoogleOAuthProvider>
-                } />
+                <Route
+                  path="/auth"
+                  element={
+                    <GoogleOAuthProvider clientId={clientid}>
+                      <AuthPage />
+                    </GoogleOAuthProvider>
+                  }
+                />
                 {/* <Route path="/auth/register" element={<RegisterPage />} /> */}
 
                 {/* Dashboard (protected inside DashboardLayout) */}
@@ -104,6 +104,5 @@ export default function App() {
         </CartProvider>
       </AuthProvider>
     </ThemeProvider>
-    
-  )
+  );
 }
