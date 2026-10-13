@@ -455,7 +455,8 @@ export default function HomePage() {
 
               {/* LinkedIn Link */}
               <a
-                href="https://linkedin.com/company/labgineer"
+                // href="https://linkedin.com/company/labgineer"
+                href="https://linkedin.com/in/sumeet-umbalkar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-slate-950/20 bg-slate-950/10 px-4 py-2.5 text-xs font-mono font-bold text-slate-950 transition-colors hover:bg-slate-950 hover:text-white"
