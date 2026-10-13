@@ -17,6 +17,7 @@ import { Button, Input, Spinner, EmptyState } from "../../components/common/Ui";
 
 const sidebarLinks = [
   { to: "/dashboard", end: true, icon: FiGrid, label: "Overview" },
+  { to: "/dashboard/purchases", icon: FiShoppingBag, label: "My Purchases" },
   { to: "/dashboard/orders", icon: FiShoppingBag, label: "My Orders" },
   { to: "/dashboard/profile", icon: FiUser, label: "Profile" },
 ];
@@ -34,7 +35,7 @@ export function DashboardLayout() {
   if (!isAuthenticated)
     return (
       <Navigate
-        to="/auth/login"
+        to="/auth"
         state={{ from: { pathname: "/dashboard" } }}
         replace
       />
@@ -95,6 +96,7 @@ export function DashboardLayout() {
 export function DashboardOverview() {
   const { user } = useAuth();
   const { data: ordersData } = useFetch("/user/orders");
+  const purchasedNumber = user?.purchased?.length || 0;
   const orders = ordersData?.orders || [];
 
   return (
@@ -105,11 +107,8 @@ export function DashboardOverview() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
         {[
-          { label: "Projects purchased", value: orders.length },
-          {
-            label: "Downloads available",
-            value: orders.filter((o) => o.status === "completed").length,
-          },
+          { label: "Projects purchased", value: purchasedNumber },
+
           {
             label: "Member since",
             value: new Date(user?.createdAt).toLocaleDateString("en-IN", {
@@ -213,6 +212,65 @@ export function DashboardOrders() {
                     <FiDownload size={12} /> Download
                   </Button>
                 )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+export function DashboardPurchases() {
+  const { user } = useAuth();
+
+  const purchases = user?.purchased || [];
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <h2 className="text-xl font-black font-display text-primary mb-6">
+        My Purchases
+      </h2>
+      {purchases.length === 0 ? (
+        <EmptyState
+          icon="🛒"
+          title="No purchases yet"
+          description="Purchase a project to see it here."
+        />
+      ) : (
+        <div className="space-y-3">
+          {purchases.map((purchase) => (
+            <div
+              key={purchase._id}
+              className="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-card border border-surface rounded-xl gap-3"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-surface-alt flex-shrink-0 overflow-hidden">
+                  {purchase?.imageUrl ? (
+                    <img
+                      src={purchase?.imageUrl}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-surface-alt" />
+                  )}
+                </div>
+                <div>
+                  <p className="font-bold text-primary text-sm">
+                    {purchase.name}
+                  </p>
+
+                  {/* link */}
+                  <a
+                    href={purchase?.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-accent font-mono hover:underline"
+                  >
+                    View Project
+                  </a>
+                </div>
               </div>
             </div>
           ))}

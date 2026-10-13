@@ -41,7 +41,7 @@ const areas = [
     icon: FiCode,
     title: "Open Source",
     text: "Free tools, libraries, and frameworks you can use today.",
-    to: "/opensource",
+    to: "/oss",
   },
   {
     icon: FiCpu,
@@ -60,13 +60,13 @@ const openSourceHighlights = [
     title: "Payguard - Agentic runtime for payment gateways",
     desc: "A Node.js library for building payment gateway integrations with a focus on security and reliability.",
     tags: ["Node.js", "Payment", "Architecture"],
-    link: "/opensource",
+    link: "/oss",
   },
   {
     title: "Liwebjs - Lightweight real-time communication framework",
     desc: "A lightweight framework for building real-time web applications with WebSocket support.",
     tags: ["Node.js", "Web", "Framework"],
-    link: "/opensource",
+    link: "/oss",
   },
 ];
 
@@ -160,10 +160,65 @@ export default function HomePage() {
           transition: { duration: 0.4, delay },
         };
 
+  function AnnouncementBanner() {
+    const TextContent = () => (
+      <span className="inline-flex items-center text-sm font-medium tracking-wide">
+        we're migrating from
+        <a
+          href="https://shop.sumeet.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-1 font-semibold hover:underline cursor-pointer text-blue-800"
+        >
+          shop.sumeet.app
+        </a>
+        to
+        <a
+          href="https://labgineer.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-1 font-semibold hover:underline cursor-pointer text-blue-800"
+        >
+          labgineer.com
+        </a>
+        , currently still in beta. please reach out to us if you have any
+        questions or issues.
+        <span className="mx-3">•</span>
+      </span>
+    );
+
+    return (
+      <div className="w-full overflow-hidden whitespace-nowrap bg-neutral-900 text-orange-500 py-2 border-y border-neutral-800">
+        <motion.div
+          className="inline-flex"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 60,
+          }}
+        >
+          <div className="inline-flex">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <TextContent key={`a-${i}`} />
+            ))}
+          </div>
+          <div className="inline-flex">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <TextContent key={`b-${i}`} />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
   return (
     <div>
+      <AnnouncementBanner />
       {/* ── Centered Hero Section ────────────────────────────── */}
       <section className="relative pt-16 pb-14 sm:pt-24 sm:pb-20">
+        {/* infinite scroll */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center space-y-5">
           {/* Eyebrow Platform Badge */}
           <motion.div
@@ -208,7 +263,7 @@ export default function HomePage() {
               <FiArrowRight size={13} aria-hidden="true" />
             </Link>
             <Link
-              to="/opensource"
+              to="/oss"
               className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-surface bg-card px-6 py-2.5 text-xs font-mono font-semibold text-muted transition-colors hover:border-highlight hover:text-primary ${focusRing}`}
             >
               Open Source Tools
@@ -318,7 +373,7 @@ export default function HomePage() {
             subtitle="Open repositories and small, reusable modules."
           />
           <Link
-            to="/opensource"
+            to="/oss"
             className={`hidden shrink-0 items-center gap-1.5 text-xs font-mono text-highlight hover:underline sm:flex ${focusRing}`}
           >
             See all <FiArrowRight size={13} aria-hidden="true" />

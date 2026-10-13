@@ -19,6 +19,7 @@ import {
   DashboardOverview,
   DashboardOrders,
   DashboardProfile,
+  DashboardPurchases,
 } from "./pages/dashboard/DashboardPages";
 
 // oauth2 imports
@@ -88,6 +89,7 @@ export default function App() {
                   <Route index element={<DashboardOverview />} />
                   <Route path="orders" element={<DashboardOrders />} />
                   <Route path="profile" element={<DashboardProfile />} />
+                  <Route path="purchases" element={<DashboardPurchases />} />
                 </Route>
               </Route>
 
