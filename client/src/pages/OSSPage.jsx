@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FiCode,
   FiStar,
@@ -11,49 +11,49 @@ import {
   FiGithub,
   FiPackage,
   FiX,
-} from 'react-icons/fi'
+} from "react-icons/fi";
 
 /* ── Sample Open Source Repositories Data ─────────────────── */
 const ossProjects = [
   {
-    id: 'payguard',
-    title: 'Payguard',
-    tagline: 'Agentic runtime & SDK for secure payment gateway integrations',
+    id: "payguard",
+    title: "Payguard",
+    tagline: "Agentic runtime & SDK for secure payment gateway integrations",
     description:
-      'A lightweight Node.js library designed to structure payment gateway flows with high resilience, automated retries, and strict transaction state validation.',
-    tags: ['Node.js', 'Payment', 'TypeScript', 'Security'],
-    stars: 142,
-    forks: 18,
-    installCommand: 'npm install payguard',
-    githubUrl: 'https://github.com/sumeet57/payguard',
-    docsUrl: '/docs/payguard',
+      "A lightweight Node.js library designed to structure payment gateway flows with high resilience, automated retries, and strict transaction state validation.",
+    tags: ["Node.js", "Payment", "TypeScript", "Security"],
+    stars: 2,
+    forks: 0,
+    installCommand: "npm install payguard",
+    githubUrl: "https://github.com/sumeet57/payguard",
+    docsUrl: "https://payguard.sumeet.app",
     featured: true,
   },
   {
-    id: 'liwebjs',
-    title: 'Liwebjs',
-    tagline: 'Lightweight real-time communication framework',
+    id: "liwebjs",
+    title: "Liwebjs",
+    tagline: "Lightweight real-time communication framework",
     description:
-      'Minimalist framework for managing high-throughput, low-latency WebSocket connections with automatic reconnects and pub/sub routing.',
-    tags: ['Node.js', 'WebSockets', 'Real-Time', 'Framework', 'TypeScript'],
-    stars: 98,
-    forks: 12,
-    installCommand: 'npm install liwebjs',
-    githubUrl: 'https://github.com/sumeet57/liwebjs',
+      "Minimalist framework for managing high-throughput, low-latency WebSocket connections with automatic reconnects and pub/sub routing.",
+    tags: ["Node.js", "WebSockets", "Real-Time", "Framework", "TypeScript"],
+    stars: 2,
+    forks: 1,
+    installCommand: "npm install liwebjs",
+    githubUrl: "https://github.com/sumeet57/liwebjs",
+    docsUrl: "https://liwebjs.sumeet.app",
     featured: true,
   },
-  
-]
+];
 
 /* ── Copy Command Button Sub-Component ───────────────────── */
 function CopySnippet({ code }) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="flex items-center justify-between gap-2 p-2 rounded-lg bg-surface-alt/70 border border-surface text-xs font-mono text-muted">
@@ -63,33 +63,37 @@ function CopySnippet({ code }) {
         className="p-1 rounded hover:bg-surface text-muted hover:text-primary transition-colors shrink-0"
         aria-label="Copy command"
       >
-        {copied ? <FiCheck size={13} className="text-emerald-500" /> : <FiCopy size={13} />}
+        {copied ? (
+          <FiCheck size={13} className="text-emerald-500" />
+        ) : (
+          <FiCopy size={13} />
+        )}
       </button>
     </div>
-  )
+  );
 }
 
 /* ── Main OSS Page Component ─────────────────────────────── */
 export default function OSSPage() {
-  const [query, setQuery] = useState('')
-  const [selectedTag, setSelectedTag] = useState('all')
+  const [query, setQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState("all");
 
   // Extract all unique tags
-  const allTags = ['all', ...new Set(ossProjects.flatMap((p) => p.tags))]
+  const allTags = ["all", ...new Set(ossProjects.flatMap((p) => p.tags))];
 
   // Filter projects based on search query and selected tag
   const filteredProjects = ossProjects.filter((project) => {
     const matchesQuery =
       project.title.toLowerCase().includes(query.toLowerCase()) ||
       project.description.toLowerCase().includes(query.toLowerCase()) ||
-      project.tags.some((t) => t.toLowerCase().includes(query.toLowerCase()))
+      project.tags.some((t) => t.toLowerCase().includes(query.toLowerCase()));
 
     const matchesTag =
-      selectedTag === 'all' ||
-      project.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase())
+      selectedTag === "all" ||
+      project.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase());
 
-    return matchesQuery && matchesTag
-  })
+    return matchesQuery && matchesTag;
+  });
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
@@ -104,7 +108,8 @@ export default function OSSPage() {
         </h1>
 
         <p className="text-xs sm:text-sm text-muted leading-relaxed">
-          Open-source repositories, lightweight runtime toolkits, and firmwares maintained by Labgineer for developers and makers.
+          Open-source repositories, lightweight runtime toolkits, and firmwares
+          maintained by Labgineer for developers and makers.
         </p>
       </div>
 
@@ -113,7 +118,10 @@ export default function OSSPage() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           {/* Search Box */}
           <div className="relative w-full sm:w-72">
-            <FiSearch size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+            <FiSearch
+              size={14}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
+            />
             <input
               type="text"
               value={query}
@@ -123,7 +131,7 @@ export default function OSSPage() {
             />
             {query && (
               <button
-                onClick={() => setQuery('')}
+                onClick={() => setQuery("")}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted hover:text-primary"
               >
                 <FiX size={13} />
@@ -134,21 +142,25 @@ export default function OSSPage() {
           {/* Tags */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 scrollbar-none">
             {allTags.map((tag) => {
-              const isActive = selectedTag.toLowerCase() === tag.toLowerCase()
+              const isActive = selectedTag.toLowerCase() === tag.toLowerCase();
               return (
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
                   className={`px-2.5 py-1 rounded-md text-[11px] font-mono capitalize transition-colors shrink-0 ${
                     isActive
-                      ? 'bg-highlight text-white font-semibold'
-                      : 'bg-surface-alt/50 border border-surface text-muted hover:text-primary'
+                      ? "bg-highlight text-white font-semibold"
+                      : "bg-surface-alt/50 border border-surface text-muted hover:text-primary"
                   }`}
-                  style={isActive ? { backgroundColor: 'var(--color-highlight)' } : {}}
+                  style={
+                    isActive
+                      ? { backgroundColor: "var(--color-highlight)" }
+                      : {}
+                  }
                 >
                   {tag}
                 </button>
-              )
+              );
             })}
           </div>
         </div>
@@ -170,13 +182,16 @@ export default function OSSPage() {
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-center gap-2">
                     <FiPackage size={18} className="text-highlight shrink-0" />
-                    <h2 className="text-base font-bold font-display text-primary">{project.title}</h2>
+                    <h2 className="text-base font-bold font-display text-primary">
+                      {project.title}
+                    </h2>
                   </div>
 
                   {/* GitHub Repo Metrics */}
                   <div className="flex items-center gap-2 text-xs font-mono text-muted shrink-0">
                     <span className="flex items-center gap-1">
-                      <FiStar size={12} className="text-amber-400" /> {project.stars}
+                      <FiStar size={12} className="text-amber-400" />{" "}
+                      {project.stars}
                     </span>
                     <span className="flex items-center gap-1">
                       <FiGitBranch size={12} /> {project.forks}
@@ -184,11 +199,17 @@ export default function OSSPage() {
                   </div>
                 </div>
 
-                <p className="text-xs font-mono text-accent mb-2">{project.tagline}</p>
-                <p className="text-xs text-muted leading-relaxed mb-4">{project.description}</p>
+                <p className="text-xs font-mono text-accent mb-2">
+                  {project.tagline}
+                </p>
+                <p className="text-xs text-muted leading-relaxed mb-4">
+                  {project.description}
+                </p>
 
                 {/* Quick Install Command */}
-                {project.installCommand && <CopySnippet code={project.installCommand} />}
+                {project.installCommand && (
+                  <CopySnippet code={project.installCommand} />
+                )}
               </div>
 
               {/* Card Footer */}
@@ -237,10 +258,14 @@ export default function OSSPage() {
       {filteredProjects.length === 0 && (
         <div className="text-center py-16 border border-dashed border-surface rounded-xl bg-card/30">
           <FiCode size={28} className="mx-auto text-muted mb-2" />
-          <p className="text-sm font-bold text-primary">No open source projects found</p>
-          <p className="text-xs text-muted mt-1">Try clearing your search query or tag filter.</p>
+          <p className="text-sm font-bold text-primary">
+            No open source projects found
+          </p>
+          <p className="text-xs text-muted mt-1">
+            Try clearing your search query or tag filter.
+          </p>
         </div>
       )}
     </div>
-  )
+  );
 }

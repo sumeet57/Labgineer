@@ -17,7 +17,7 @@ import {
 } from 'react-icons/fi'
 import { useFetch } from '../hooks/useApi'
 import ProductCard from '../components/product/ProductCard'
-import { SectionHeader, Spinner } from '../components/common/UI'
+import { SectionHeader, Spinner } from '../components/common/Ui'
 
 /* ── Shared styles ─────────────────────────────────────── */
 
